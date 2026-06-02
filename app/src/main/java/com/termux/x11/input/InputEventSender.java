@@ -40,6 +40,7 @@ public final class InputEventSender {
     public boolean pauseKeyInterceptingWithEsc = false;
     public boolean stylusIsMouse = false;
     public boolean stylusButtonContactModifierMode = false;
+    public boolean rightClickIsBack = false;
 
     /** Set of pressed keys for which we've sent TextEvent. */
     private final TreeSet<Integer> mPressedTextKeys;

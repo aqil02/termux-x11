@@ -441,6 +441,7 @@ public class TouchInputHandler {
             default:
                 capturedPointerTransformation = CapturedPointerTransformation.NONE;
         }
+        mInjector.rightClickIsBack = p.rightClickIsBack.get();
 
         MainActivity.getRealMetrics(mMetrics);
 
@@ -810,7 +811,10 @@ public class TouchInputHandler {
                 if (e.getRepeatCount() != 0) // ignore auto-repeat
                     return true;
                 if (e.getAction() == KeyEvent.ACTION_UP || e.getAction() == KeyEvent.ACTION_DOWN)
-                    mActivity.getLorieView().sendMouseEvent(-1, -1, InputStub.BUTTON_RIGHT, e.getAction() == KeyEvent.ACTION_DOWN, true);
+                    if (mInjector.rightClickIsBack)
+                        mActivity.getLorieView().sendMouseEvent(-1, -1, InputStub.BUTTON_RIGHT, e.getAction() == KeyEvent.ACTION_DOWN, true);
+                    else
+                        mActivity.getLorieView().sendKeyEvent(0,211,e.getAction() == KeyEvent.ACTION_DOWN);
                 return true;
             }
 
