@@ -357,4 +357,5 @@ static int android_to_linux_keycode[304] = {
         [ 170  /* ANDROID_KEYCODE_TV */] = KEY_TV,
         [ 208  /* ANDROID_KEYCODE_CALENDAR */] = KEY_CALENDAR,
         [ 210  /* ANDROID_KEYCODE_CALCULATOR */] = KEY_CALC,
+        [ 211  /* ANDROID_KEYCODE_BACK */] = KEY_BACK,
 };
